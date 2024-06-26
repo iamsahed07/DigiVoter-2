@@ -6,5 +6,5 @@ import { sendOTPForVoteMail } from "#/utils/mail";
 const router = Router();
 router.post("/give-vote", mustAuth, giveVote);
 router.post("/sendOtpForVote", mustAuth,sendMailVote);
-router.get("/isVoted", mustAuth,isVoted);
+router.post("/isVoted", mustAuth,isVoted);
 export default router;

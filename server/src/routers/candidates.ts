@@ -2,6 +2,8 @@ import {
   addCandidate,
   getAllCandidate,
   getAllCandidateBasedOnConstituency,
+  getAllCandidateBasedOnElectionName,
+  getAllCandidateBasedOnState,
 } from "#/controllars/candidate";
 import { mustAuth } from "#/middleware/auth";
 import { fileParser } from "#/middleware/fileParser";
@@ -12,6 +14,7 @@ import { Router } from "express";
 const router = Router();
 router.post("/add-candidate",fileParser, addCandidate); //on admin can add
 router.get("/get-all-candidate", getAllCandidate); //on admin can add
-
-router.patch("/get-based-on-constituency",mustAuth, getAllCandidateBasedOnConstituency);
+router.post("/get-based-on-constituency",mustAuth, getAllCandidateBasedOnConstituency);
+router.post("/get-based-on-state",mustAuth, getAllCandidateBasedOnState);
+router.post("/get-based-on-electionName",mustAuth, getAllCandidateBasedOnElectionName);
 export default router;
